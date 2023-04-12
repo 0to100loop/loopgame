@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+<!-- beginning text -->
+<meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet">
+<title>MULTIPLICATION!!!</title>
+</head>
+<!--end beginning text -->
+<body>
+<h1> Why are we multiplying?</h1>
+<h4>Ugh... enter two numbers:</h4>
+<!-- text boxes -->
+<form>
+ <input type="text" placeholder="1st Number" id="firstNumber" /><br>
+ <input type="text" placeholder="2nd Number" id="secondNumber" /><br>
+<input type="button" onClick="multiplyBy()" Value="Multiply" />
+</form>
+<p>Total : <br>
+<span id = "result"></span>
+</p>
+<!-- end text boxes -->
+
+<!-- start function -->
+<script>
+    function multiplyBy()
+{
+        num1 = document.getElementById("firstNumber").value;
+        num2 = document.getElementById("secondNumber").value;
+        document.getElementById("result").innerHTML = num1 * num2;
+}
+
+    
+    </script> 
+    <!-- end function -->
+    
+    <!-- buttons -->
+    <div><a href="loop.html"><button>Feeling Loopy?</button></a></div>
+    <div><a href="index.html"><button>Back To Guessing Game</button></a></div>
+    <!-- end buttons -->
+</body>
+</html>

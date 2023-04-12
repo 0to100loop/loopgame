@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+ <!-- beginning text-->
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet">
+    <title>Guess This!</title>
+    <!-- end beginning text-->
+  </head>
+
+  <body>
+<!-- restart / refreshing -->
+      <script>
+      setTimeout(function() {
+  location.reload();
+}, 30000);</script>
+     <div class="container">
+<!-- main description -->
+<div class="form">
+   
+    <label for="guessField"><h1>What Number Am I Thinking Of?</h1> </label>
+    <h3>Enter a number between 1 and 99</h3>
+    <h4>You have 50 seconds, GO</h4>
+  <div class="enter">
+  <input type="text"  placeholder="1-99" id="guessField">
+    </div>
+    
+    <div class="guessButton">
+  <button id="guessSubmit">Enter</button>
+    </div>
+    <div class="lucky">
+        <a href="lucky.html"><button>This Button Gets You Far Away From This Stupid Game</button></a>
+    </div>
+    <div>
+        
+    </div>
+</div>
+<!--The following code is used to identify each element -->
+<p id="inguess"></p>
+<p id="lResult"></p>
+<p id="HiOrLo"></p>
+<p id="name"></p>
+
+
+</div>
+  </body>
+<!-- The following script is used to pick a random number and when the user guesses a number, an answer is returned such as "too low" if the guess is too low (User has 10 tries shown in "guessCount == 10" -->
+  <script>
+ var randomNumber = Math.floor(Math.random() * 100) + 1;
+var inguess = document.getElementById("inguess");
+var lResult = document.getElementById("lResult");
+var HiOrLo = document.getElementById("HiOrLo");
+var guessSubmit = document.getElementById("guessSubmit");
+var guessField = document.getElementById("guessField");
+var guessCount = 1;
+function checkGuess() {
+  var userGuess = Number(guessField.value);
+  inguess.innerHTML += userGuess + " ";
+  if(guessCount == 10) {
+    lResult.innerHTML = "GAME OVER";
+    disableForm();
+  } else {
+    
+    if(userGuess == randomNumber) {
+      lResult.innerHTML ="You got it right!";
+      HiOrLo.innerHTML = "";
+      disableForm();
+    } else {
+      lResult.innerHTML = "Nope, try again that number was: ";
+      if(userGuess < randomNumber) {
+        HiOrLo.innerHTML = "Too low!";
+      } else if(userGuess > randomNumber) {
+        HiOrLo.innerHTML = "Too high!"; }
+    
+    
+    }
+    guessCount++;
+    guessField.value = "";
+  }
+}
+function disableForm() {
+  var wholeForm = document.querySelector(".form");
+  wholeForm.style.opacity = 0.5; 
+  guessField.setAttribute("disabled", "disabled");
+  guessSubmit.setAttribute("disabled", "disabled"); 
+}
+guessSubmit.onclick = checkGuess;
+  </script>
+  
+  <!-- script for countdown function -->
+  <div id="countdown">51
+  <script type="text/javascript">
+  var seconds;
+  var temp;
+ 
+  function countdown() {
+    seconds = document.getElementById('countdown').innerHTML;
+    seconds = parseInt(seconds, 10);
+ 
+    if (seconds == 1) {
+      temp = document.getElementById('countdown');
+      temp.innerHTML = "That sucks";
+      return;
+    }
+ 
+    seconds--;
+    temp = document.getElementById('countdown');
+    temp.innerHTML = seconds;
+    timeoutMyOswego = setTimeout(countdown, 1000);
+  } 
+ 
+  countdown();
+</script>
+ <!-- end countdown function -->
+  </div>
+  
+
+</html>

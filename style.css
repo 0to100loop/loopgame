@@ -1,0 +1,22 @@
+html{
+    background-color: black;
+    color: yellow;
+    
+    background-size: auto;
+    font-family: 'Montserrat', cursive;
+    text-align: center;
+    font-size: 25px;
+}
+
+
+.guessButton{
+    padding-top: 20px;
+    padding-bottom: 20px;
+    }
+.lucky{
+    padding-bottom: 20px;
+}
+.restart{
+    text-align: right;
+    padding-top: 150px;
+}
